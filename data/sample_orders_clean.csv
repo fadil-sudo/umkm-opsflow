@@ -1,0 +1,12 @@
+﻿tanggal,produk,qty,harga,total,pelanggan,status_bayar,metode,catatan
+2026-10-27,Kopi Susu,5,15000,75000,Budi,paid,cash,regular customer
+2026-10-27,Kopi Hitam,3,12000,36000,Siti,paid,qris,
+2026-10-27,Es Teh Manis,8,8000,64000,Andi,paid,cash,
+2026-10-27,Cappuccino,2,20000,40000,Dewi,paid,transfer,
+2026-10-27,Croissant,4,25000,100000,Joko,paid,cash,
+2026-10-27,Kopi Susu,3,15000,45000,Rina,unpaid,cash,will pay tomorrow
+2026-10-27,Kopi Hitam,2,12000,24000,Wati,paid,qris,
+2026-10-27,Es Teh Manis,5,8000,40000,Faisal,paid,cash,
+2026-10-27,Cappuccino,1,20000,20000,Sinta,paid,transfer,
+2026-10-27,Kopi Susu,4,15000,60000,Aldi,paid,cash,
+2026-10-27,Kopi Susu beans,1,400000,400000,,paid,transfer,monthly bean restock

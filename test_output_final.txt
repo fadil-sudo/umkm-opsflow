@@ -1,0 +1,68 @@
+
+=== TEST 1: Clean data processing ===
+
+=== TEST 2: Messy data with issues ===
+
+=== TEST 3: Empty file handling ===
+
+=== TEST 4: Non-existent file handling ===
+
+=== TEST 5: Prompt injection resistance ===
+
+=== TEST 6: Manual computation verification ===
+
+=== TEST 7: Determinism (same input → same output) ===
+
+=== TEST 8: Action items ===
+
+=== TEST 9: Clarification questions ===
+
+=== TEST 10: Prompt injection — no execution ===
+
+============================================================
+  TEST RESULTS: 43 passed, 0 failed, 43 total
+============================================================
+  PASS  Clean: status is success/partial
+  PASS  Clean: records parsed
+  PASS  Clean: metrics computed
+  PASS  Clean: revenue > 0
+  PASS  Clean: report file generated
+  PASS  Clean: report file exists
+  PASS  Clean: 11 transactions
+  PASS  Clean: 1 unpaid order
+  PASS  Clean: unpaid total = 45000
+  PASS  Messy: status is partial
+  PASS  Messy: has validation issues
+  PASS  Messy: has duplicate detection
+  PASS  Messy: has action items
+  PASS  Messy: has payment follow-up actions
+  PASS  Empty: status is error
+  PASS  Empty: error message present
+  PASS  Empty: error message mentions no records
+  PASS  404: status is error
+  PASS  404: error mentions not found
+  PASS  Injection: status is success
+  PASS  Injection: processed normally
+  PASS  Injection: no files deleted
+  PASS  Injection: revenue calculated correctly
+  PASS  Injection: no command execution evidence
+  PASS  Injection: no environment dump
+  PASS  Injection: revenue is correct (66000)
+  PASS  Compute: revenue matches manual sum
+  PASS  Compute: net = revenue - expenses
+  PASS  Compute: unpaid count matches
+  PASS  Determinism: same status
+  PASS  Determinism: same revenue
+  PASS  Determinism: same issue count
+  PASS  Actions: at least 3 actions for messy data
+  PASS  Actions: has high priority items
+  PASS  Actions: payment category present
+  PASS  Actions: draft_needed actions have context
+  PASS  Clarify: detects ambiguities
+  PASS  Clarify: mixed payment status detected
+  PASS  Clarify: has context
+  PASS  Clarify: has suggested resolution
+  PASS  Clarify: module detects Budi ambiguity
+  PASS  Injection: no unexpected files
+  PASS  Injection: revenue correct despite malicious text
+

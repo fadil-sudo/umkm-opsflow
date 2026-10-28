@@ -1,0 +1,11 @@
+﻿tanggal,tipe,produk,qty,harga_satuan,total,pelanggan,status_bayar,metode,catatan
+2026-10-27,order,Kopi Susu,2,15000,30000,Budi,paid,cash,
+2026-10-27,order,Kopi Hitam,1,12000,12000,Budi,unpaid,transfer,
+2026-10-27,order,Es Teh Manis,3,8000,24000,Rina,paid,qris,
+2026-10-27,order,Roti Bakar,2,10000,20000,Faisal,unpaid,cash,
+2026-10-27,order,Kopi Susu,2,15000,30000,Budi,paid,cash,duplikat?
+2026-10-27,expense,Supplies Kopi,1,50000,50000,,paid,transfer,restock
+2026-10-27,order,Nasi Goreng,1,25000,25000,Doni,partial,cash,sudah bayar 10000
+2026-10-27,order,Es Jeruk,2,7000,14000,Sari,paid,cash,
+2026-10-27,order,Mie Goreng,1,18000,18000,Budi,paid,gopay,
+2026-10-27,order,Kopi Susu Gula Aren,1,18000,18000,Budi,unpaid,cash,

@@ -1,0 +1,21 @@
+# Output directories
+output/
+output_*/
+test_output/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Environment
+venv/
+env/
