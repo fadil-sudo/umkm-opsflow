@@ -59,8 +59,35 @@
 
 ---
 
-### Scene 3: Demo — Data Bersih (1:30 - 3:00)
-**Durasi: ~90 detik**
+### Scene 3: Demo — UI Streamlit (1:30 - 2:45)
+**Durasi: ~75 detik**
+
+**Visual:**
+1. Buka browser di `http://localhost:8501` — tampilkan halaman Streamlit UMKM OpsFlow
+2. Tunjukkan sidebar: panduan singkat dan info hackathon
+3. Pilih tab "🎬 Data Demo"
+4. Pilih dataset "✅ Data Bersih" dari dropdown
+5. Klik "🚀 Proses Demo"
+6. Tunjukkan metrik muncul: Pendapatan, Pengeluaran, Net Cashflow
+7. Scroll ke bawah — tunjukkan laporan harian lengkap
+8. Pilih dataset "⚠️ Data Berantakan"
+9. Klik "🚀 Proses Demo"
+10. Tunjukkan metrik + warning box "⚠️ 4 masalah validasi ditemukan"
+11. Expand "Lihat detail masalah" — tunjukkan isu duplikat, qty nol, dll
+
+**Voice over script:**
+> "Ini antarmuka web UMKM OpsFlow yang saya bangun dengan Streamlit. Pengguna cukup upload file CSV, klik Proses, dan dalam hitungan detik melihat laporan lengkap dengan metrik keuangan. Jika data bermasalah, agent menampilkan isu validasi secara transparan — tidak ada yang disembunyikan. Semua draf pesan follow-up juga ditampilkan di sini, dengan tombol persetujuan sebelum 'dikirim'."
+
+**Highlight di layar:**
+- "Upload CSV" drag-and-drop area
+- Metrik cards: "💰 Pendapatan Rp 483,000"
+- Warning box: "⚠️ 4 masalah validasi"
+- **Teks overlay: "UI interaktif — tanpa coding"**
+
+---
+
+### Scene 4: Demo — Data Bersih via CLI (2:45 - 3:30)
+**Durasi: ~45 detik**
 
 **Visual:**
 1. Buka terminal / command prompt
@@ -70,7 +97,7 @@
 5. Buka `output_clean/draft_messages.md` — tunjukkan draf pesan
 
 **Voice over script:**
-> "Mari kita lihat cara kerjanya. Saya punya file CSV dengan 11 transaksi yang sudah rapi. Saya jalankan UMKM OpsFlow... dan dalam beberapa detik, agent menghasilkan laporan harian lengkap dengan total pendapatan, pengeluaran, laba bersih, dan daftar order yang belum dibayar. Agent juga menyusun draf pesan follow-up untuk pelanggan yang belum membayar — tapi perhatikan, ini hanya draf. Agent tidak pernah mengirim apa pun tanpa persetujuan saya."
+> "Di balik UI ini, semua logika berjalan di Python dengan pipeline yang sepenuhnya deterministik. Mari kita lihat versi command line-nya. Saya jalankan dengan data bersih... dan output-nya konsisten setiap kali. Agent menghasilkan laporan harian lengkap dengan total pendapatan, pengeluaran, laba bersih, dan daftar order yang belum dibayar. Agent juga menyusun draf pesan follow-up — tapi perhatikan, ini hanya draf. Agent tidak pernah mengirim apa pun tanpa persetujuan saya."
 
 **Highlight di layar:**
 - "Total Revenue: Rp 483,000"
@@ -80,8 +107,8 @@
 
 ---
 
-### Scene 4: Demo — Data Berantakan + Validasi (3:00 - 4:30)
-**Durasi: ~90 detik**
+### Scene 5: Demo — Data Berantakan + Validasi (3:30 - 4:30)
+**Durasi: ~60 detik**
 
 **Visual:**
 1. Buka `data/sample_orders_messy.csv` di text editor — tunjukkan kekacauan:
@@ -110,7 +137,7 @@
 
 ---
 
-### Scene 5: Demo — Prompt Injection Resistance (4:30 - 5:15)
+### Scene 6: Demo — Prompt Injection Resistance (4:30 - 5:15)
 **Durasi: ~45 detik**
 
 **Visual:**
@@ -131,7 +158,7 @@
 
 ---
 
-### Scene 6: Demo — Human Approval Gate (5:15 - 6:00)
+### Scene 7: Demo — Human Approval Gate (5:15 - 6:00)
 **Durasi: ~45 detik**
 
 **Visual:**
@@ -150,12 +177,12 @@
 
 ---
 
-### Scene 7: Test Results (6:00 - 6:45)
+### Scene 8: Test Results (6:00 - 6:45)
 **Durasi: ~45 detik**
 
 **Visual:**
 1. Jalankan: `python tests/test_opsflow.py`
-2. Tunjukkan output: "36 passed, 0 failed, 36 total"
+2. Tunjukkan output: "43 passed, 0 failed, 43 total"
 3. Scroll cepat melalui daftar test yang lulus
 4. Tampilkan ringkasan test:
    - Clean data ✓
@@ -166,17 +193,19 @@
    - Computation accuracy ✓
    - Determinism ✓
    - Action items ✓
+   - Clarification detection ✓
+   - Budi ambiguity ✓
 
 **Voice over script:**
-> "Kami menguji agent dengan 36 test case yang mencakup data bersih, data berantakan, file kosong, file tidak ada, prompt injection, akurasi perhitungan, determinisme, dan pembuatan item tindakan. Semua 36 test lulus. Setiap angka di laporan dapat diverifikasi secara independen karena semua perhitungan dilakukan dengan Python, bukan dengan LLM."
+> "Kami menguji agent dengan 43 test case yang mencakup data bersih, data berantakan, file kosong, file tidak ada, prompt injection, akurasi perhitungan, determinisme, pembuatan item tindakan, dan deteksi ambiguitas. Semua 43 test lulus. Setiap angka di laporan dapat diverifikasi secara independen karena semua perhitungan dilakukan dengan Python, bukan dengan LLM."
 
 **Highlight di layar:**
-- "36 passed, 0 failed, 36 total"
+- "43 passed, 0 failed, 43 total"
 - **Teks overlay: "100% test pass rate"**
 
 ---
 
-### Scene 8: Refleksi & Closing (6:45 - 7:30)
+### Scene 9: Refleksi & Closing (6:45 - 7:30)
 **Durasi: ~45 detik**
 
 **Visual:**
@@ -184,8 +213,8 @@
   - Masalah: Data UMKM berantakan → laporan manual 30-60 menit
   - Solusi: UMKM OpsFlow → laporan tervalidasi < 15 detik
   - Akuntabilitas: 5 aturan (Sources, Permissions, Approval, Limits, Record)
-  - Stack: Python stdlib + WorkBuddy, tidak ada API eksternal
-  - Test: 36/36 lulus
+  - Stack: Python stdlib + Streamlit + WorkBuddy, tidak ada API eksternal
+  - Test: 43/43 lulus
 - Tampilkan kontak / repo link
 - Tampilkan logo Tencent Cloud + WorkBuddy
 
