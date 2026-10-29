@@ -1,0 +1,79 @@
+﻿tanggal,type,produk,qty,harga,total,pelanggan,status_bayar,metode,catatan
+2026-10-21,order,Kopi Susu,5,15000,75000,Ahmad,paid,cash,pagi
+2026-10-21,order,Kopi Hitam,3,12000,36000,Budi,paid,qris,
+2026-10-21,order,Es Teh Manis,4,8000,32000,Citra,paid,cash,
+2026-10-21,order,Croissant,2,25000,50000,Dedi,paid,transfer,
+2026-10-21,order,Kopi Susu,2,15000,30000,Eka,unpaid,cash,langganan
+2026-10-21,order,Roti Bakar,3,18000,54000,Fajar,paid,qris,
+2026-10-21,order,Kopi Susu,4,15000,60000,Gita,paid,cash,
+2026-10-21,order,Cappuccino,2,20000,40000,Hadi,paid,cash,
+2026-10-21,order,Es Teh Manis,6,8000,48000,Indah,paid,transfer,
+2026-10-21,order,Kopi Hitam,1,12000,12000,Joko,unpaid,cash,
+2026-10-21,order,Nasi Goreng,2,25000,50000,Kiki,paid,qris,
+2026-10-21,order,Kopi Susu,3,15000,45000,Lina,paid,cash,
+2026-10-21,order,Mie Goreng,2,22000,44000,Maman,paid,cash,
+2026-10-21,order,Es Jeruk,4,10000,40000,Nina,paid,qris,
+2026-10-21,order,Kopi Hitam,5,12000,60000,Opik,paid,transfer,
+2026-10-21,order,Roti Bakar,2,18000,36000,Putri,partial,cash,
+2026-10-21,expense,Bahan Baku,1,350000,350000,,paid,transfer,pembelian biji kopi
+2026-10-21,expense,Listrik,1,450000,450000,,paid,transfer,tagihan Oktober
+2026-10-22,order,Kopi Susu,6,15000,90000,Rudi,paid,cash,
+2026-10-22,order,Kopi Hitam,4,12000,48000,Sari,paid,qris,
+2026-10-22,order,Es Teh Manis,5,8000,40000,Tono,paid,cash,
+2026-10-22,order,Croissant,3,25000,75000,Umi,paid,transfer,
+2026-10-22,order,Kopi Susu,2,15000,30000,Vina,unpaid,cash,office order
+2026-10-22,order,Roti Bakar,4,18000,72000,Wawan,paid,qris,
+2026-10-22,order,Kopi Susu,3,15000,45000,Xena,paid,cash,
+2026-10-22,order,Cappuccino,3,20000,60000,Yogi,paid,cash,
+2026-10-22,order,Es Jeruk,5,10000,50000,Zara,paid,transfer,
+2026-10-22,order,Mie Goreng,3,22000,66000,Andi,paid,qris,
+2026-10-22,order,Nasi Goreng,4,25000,100000,Beni,paid,cash,
+2026-10-22,order,Kopi Hitam,2,12000,24000,Cici,paid,cash,
+2026-10-22,order,Es Teh Manis,3,8000,24000,Dedi,paid,qris,repeat
+2026-10-22,expense,Gula Pasir,1,85000,85000,,paid,cash,beli gula 10kg
+2026-10-22,expense,Plastik Kemasan,1,120000,120000,,paid,transfer,kemasan 500 pcs
+2026-10-23,order,Kopi Susu,4,15000,60000,Euis,paid,cash,
+2026-10-23,order,Kopi Hitam,3,12000,36000,Fahri,paid,qris,
+2026-10-23,order,Es Teh Manis,7,8000,56000,Gita,paid,cash,
+2026-10-23,order,Croissant,2,25000,50000,Hani,paid,transfer,
+2026-10-23,order,Kopi Susu,5,15000,75000,Iwan,unpaid,cash,event
+2026-10-23,order,Roti Bakar,2,18000,36000,Jeni,paid,qris,
+2026-10-23,order,Kopi Susu,3,15000,45000,Kiki,paid,cash,
+2026-10-23,order,Cappuccino,4,20000,80000,Lia,paid,cash,
+2026-10-23,order,Es Jeruk,3,10000,30000,Miko,paid,transfer,
+2026-10-23,order,Nasi Goreng,5,25000,125000,Nana,paid,qris,
+2026-10-23,order,Kopi Hitam,6,12000,72000,Opik,paid,cash,
+2026-10-23,order,Es Teh Manis,4,8000,32000,Putra,paid,qris,
+2026-10-23,order,Mie Goreng,2,22000,44000,Qori,paid,cash,
+2026-10-23,expense,Gas LPG,1,180000,180000,,paid,cash,isi ulang 2 tabung
+2026-10-23,expense,Air Mineral Galon,1,95000,95000,,paid,transfer,10 galon
+2026-10-24,order,Kopi Susu,7,15000,105000,Rani,paid,cash,
+2026-10-24,order,Kopi Hitam,5,12000,60000,Sigit,paid,qris,
+2026-10-24,order,Es Teh Manis,6,8000,48000,Tika,paid,cash,
+2026-10-24,order,Croissant,4,25000,100000,Udin,paid,transfer,
+2026-10-24,order,Kopi Susu,3,15000,45000,Vera,unpaid,cash,
+2026-10-24,order,Roti Bakar,3,18000,54000,Wati,paid,qris,
+2026-10-24,order,Kopi Susu,4,15000,60000,Yayan,paid,cash,
+2026-10-24,order,Cappuccino,2,20000,40000,Zeni,paid,cash,
+2026-10-24,order,Es Jeruk,6,10000,60000,Aldi,paid,transfer,
+2026-10-24,order,Nasi Goreng,3,25000,75000,Bima,paid,qris,
+2026-10-24,order,Mie Goreng,4,22000,88000,Caca,paid,cash,
+2026-10-24,order,Kopi Hitam,3,12000,36000,Dodi,paid,qris,
+2026-10-24,order,Es Teh Manis,5,8000,40000,Elok,paid,cash,
+2026-10-24,expense,Susu Fresh,1,210000,210000,,paid,transfer,pembelian susu 30L
+2026-10-24,expense,Transport,1,150000,150000,,paid,cash,ojek pengiriman
+2026-10-25,order,Kopi Susu,8,15000,120000,Fani,paid,cash,
+2026-10-25,order,Kopi Hitam,4,12000,48000,Gilang,paid,qris,
+2026-10-25,order,Es Teh Manis,5,8000,40000,Hesti,paid,cash,
+2026-10-25,order,Croissant,3,25000,75000,Ikhsan,paid,transfer,
+2026-10-25,order,Kopi Susu,2,15000,30000,Jaya,unpaid,cash,
+2026-10-25,order,Roti Bakar,5,18000,90000,Kiki,paid,qris,
+2026-10-25,order,Kopi Susu,6,15000,90000,Lutfi,paid,cash,
+2026-10-25,order,Cappuccino,3,20000,60000,Maya,paid,cash,
+2026-10-25,order,Es Jeruk,4,10000,40000,Nopal,paid,transfer,
+2026-10-25,order,Nasi Goreng,6,25000,150000,Ocha,paid,qris,
+2026-10-25,order,Mie Goreng,3,22000,66000,Putra,paid,cash,
+2026-10-25,order,Kopi Hitam,5,12000,60000,Qori,paid,qris,
+2026-10-25,order,Es Teh Manis,3,8000,24000,Rani,paid,cash,
+2026-10-25,expense,Gaji Karyawan,1,2500000,2500000,,paid,transfer,2 karyawan
+2026-10-25,expense,Internet,1,350000,350000,,paid,transfer,tagihan Oktober
