@@ -35,9 +35,19 @@ Spreadsheet berantakan → Agent membaca → Validasi → Hitung (deterministik)
 
 ### Prasyarat
 - Python 3.11+ (diuji pada 3.13.12)
-- Tidak perlu dependensi pip (hanya pustaka standar untuk CSV)
+- Tidak perlu dependensi pip untuk CLI (hanya pustaka standar untuk CSV)
+- Untuk UI: `pip install streamlit`
 
-### Jalankan Demo
+### Option 1: Web UI (Streamlit) — Direkomendasikan untuk Demo
+
+```bash
+pip install streamlit
+streamlit run app.py
+```
+
+Buka browser di `http://localhost:8501`. Upload CSV, lihat laporan, setujui tindakan.
+
+### Option 2: CLI
 
 ```bash
 # Proses data berantakan (menunjukkan validasi beraksi)
@@ -111,6 +121,7 @@ Pengguna (WorkBuddy) → "Ini data penjualan hari ini" → unggah CSV
 
 | Skrip | Tujuan |
 |-------|--------|
+| `app.py` | **Streamlit Web UI** — upload CSV, lihat laporan, setujui tindakan |
 | `scripts/opsflow.py` | Entry point utama — orkestrasi pipeline lengkap |
 | `scripts/parse_input.py` | Parse CSV/XLSX menjadi record ternormalisasi |
 | `scripts/validate.py` | Validasi record, tandai isu |

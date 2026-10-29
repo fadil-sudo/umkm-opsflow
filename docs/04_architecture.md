@@ -11,8 +11,15 @@
 ```
 ┌─────────────────────────────────────────────────────┐
 │                   ANTARMUKA PENGGUNA                  │
-│            WorkBuddy Agent (bahasa natural)          │
-│        "Ini data penjualan hari ini"                │
+│    ┌─────────────────────────────────────────┐       │
+│    │  Streamlit Web UI (app.py)              │       │
+│    │  Upload CSV → Lihat Report → Setujui    │       │
+│    └─────────────────────────────────────────┘       │
+│                    OR                                 │
+│    ┌─────────────────────────────────────────┐       │
+│    │  WorkBuddy Agent (bahasa natural)       │       │
+│    │  "Ini data penjualan hari ini"          │       │
+│    └─────────────────────────────────────────┘       │
 └──────────────────────┬──────────────────────────────┘
                        │
                        ▼

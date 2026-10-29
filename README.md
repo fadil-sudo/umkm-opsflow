@@ -32,9 +32,28 @@ Spreadsheet berantakan → Agent membaca → Validasi → Hitung (deterministik)
 
 ### Prasyarat
 - Python 3.11+ (diuji pada 3.13.12)
-- Tidak perlu dependensi pip (hanya pustaka standar untuk CSV)
+- Tidak perlu dependensi pip untuk CLI (hanya pustaka standar untuk CSV)
+- Untuk UI: `pip install streamlit`
 
-### Jalankan Demo
+### Jalankan dengan UI (Streamlit) — Direkomendasikan untuk Demo
+
+```bash
+# Install streamlit
+pip install streamlit
+
+# Jalankan UI
+streamlit run app.py
+```
+
+Buka browser di `http://localhost:8501`. Anda bisa:
+- **Upload** file CSV via drag-and-drop
+- **Lihat** metrik pendapatan, pengeluaran, net cashflow
+- **Periksa** masalah validasi dan pertanyaan klarifikasi
+- **Tinjau** item tindakan dan draf pesan
+- **Setujui** tindakan sebelum "kirim" (mock)
+- **Unduh** laporan dalam format Markdown, JSON, dan CSV
+
+### Jalankan via CLI
 
 ```bash
 # Proses data berantakan (menunjukkan validasi beraksi)
