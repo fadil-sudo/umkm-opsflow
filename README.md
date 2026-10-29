@@ -37,12 +37,32 @@ Spreadsheet berantakan → Agent membaca → Validasi → Hitung (deterministik)
 
 ### Jalankan dengan UI (Streamlit) — Direkomendasikan untuk Demo
 
+**Opsi 1: Pakai launcher batch (Windows)**
+
+Double-click file `run_ui.bat` di folder `umkm-opsflow`.
+
+**Opsi 2: Manual via terminal**
+
+> ⚠️ **Penting:** Pastikan Anda menggunakan Python dari venv yang sudah terinstall Streamlit. Jangan pakai Python system yang mungkin punya versi numpy lama.
+
 ```bash
-# Install streamlit
+# Install streamlit (jika belum)
 pip install streamlit
 
-# Jalankan UI
-streamlit run app.py
+# Jalankan UI — pastikan pakai python yang sama tempat streamlit diinstall
+python -m streamlit run app.py
+```
+
+**Jika muncul error `pyarrow requires NumPy 2.0`:**
+
+Ini berarti Anda menjalankan Streamlit dengan Python system (3.11) yang punya numpy lama. Solusi:
+
+```bash
+# Update numpy
+pip install --upgrade numpy
+
+# Atau pakai python dari venv:
+C:\Users\User\.workbuddy-ai\binaries\python\envs\default\Scripts\python.exe -m streamlit run app.py
 ```
 
 Buka browser di `http://localhost:8501`. Anda bisa:
