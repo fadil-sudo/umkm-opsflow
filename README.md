@@ -202,16 +202,6 @@ Pengguna (WorkBuddy) → "Ini data penjualan hari ini" → unggah CSV
 
 ---
 
-## Konteks Hackathon
-
-- **Event:** Tencent Cloud Hackathon Indonesia 2026
-- **Challenge:** B — The Office Agent (Automate Better)
-- **Platform:** Tencent WorkBuddy
-- **Deadline submission:** 1 November 2026, 23:59 WIB
-- **Demo Day:** 27 November 2026
-
----
-
 ## Lisensi
 
 Proyek ini dibuat untuk Tencent Cloud Hackathon Indonesia 2026. Semua data demo adalah sintetis.
