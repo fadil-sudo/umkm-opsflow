@@ -213,7 +213,7 @@ with tab_upload:
                 if actions:
                     st.markdown("---")
                     st.markdown("### ✅ Item Tindakan")
-                    for action in actions:
+                    for idx, action in enumerate(actions):
                         priority = action.get("priority", "low")
                         css_class = f"action-{priority}"
                         icon = {"high": "🔴", "medium": "🟠", "low": "🟢"}.get(priority, "⚪")
@@ -231,9 +231,9 @@ with tab_upload:
                                 if draft.get("recipient"):
                                     st.write(f"**Penerima:** {draft['recipient']}")
                                 if draft.get("content"):
-                                    st.text_area("Isi pesan:", draft["content"], height=100, key=f"draft_{action.get('title', '')[:20]}")
+                                    st.text_area("Isi pesan:", draft["content"], height=100, key=f"draft_{idx}_{action.get('title', '')[:10]}")
                                 st.warning("⚠️ Pesan ini belum dikirim. Klik 'Setujui & Kirim' untuk melanjutkan (mock).")
-                                approve = st.button("✅ Setujui & Kirim (Mock)", key=f"approve_{action.get('title', '')[:20]}")
+                                approve = st.button("✅ Setujui & Kirim (Mock)", key=f"approve_{idx}_{action.get('title', '')[:10]}")
                                 if approve:
                                     st.success("✅ Tindakan disetujui. Dalam produksi, pesan akan dikirim.")
                 
