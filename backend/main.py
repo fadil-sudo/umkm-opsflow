@@ -13,6 +13,8 @@ from typing import Optional
 
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 # Import pipeline modules
@@ -50,7 +52,7 @@ class ProcessResponse(BaseModel):
     error: Optional[str]
 
 
-@app.get("/api/health")
+@app.get("/api/status")
 def health_check():
     return {"status": "ok", "service": "umkm-opsflow-api"}
 
@@ -121,8 +123,19 @@ async def process_file(file: UploadFile = File(...)):
     )
 
 
+# Serve static frontend files
+app.mount("/assets", StaticFiles(directory="static/assets"), name="assets")
+
 @app.get("/")
 def root():
+    return FileResponse("static/index.html")
+
+@app.get("/favicon.svg")
+def favicon():
+    return FileResponse("static/favicon.svg")
+
+@app.get("/api/info")
+def api_info():
     return {
         "message": "UMKM OpsFlow API",
         "docs": "/docs",

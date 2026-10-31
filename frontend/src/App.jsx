@@ -1,6 +1,15 @@
 import { useState, useRef, useCallback } from 'react'
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://umkm-opsflow-api.onrender.com/api'
+const API_URL = import.meta.env.VITE_API_URL || '/api'
+
+// Extract sharecode from URL for WorkBuddy sites access
+const urlParams = new URLSearchParams(window.location.search)
+const shareCode = urlParams.get('sharecode')
+const shareCodeSuffix = shareCode ? `?sharecode=${shareCode}` : ''
+
+function apiUrl(path) {
+  return `${API_URL}${path}${shareCodeSuffix}`
+}
 
 function formatRupiah(num) {
   if (num === undefined || num === null) return 'Rp 0'
@@ -81,7 +90,7 @@ export default function App() {
     formData.append('file', file)
 
     try {
-      const res = await fetch(`${API_URL}/process`, {
+      const res = await fetch(apiUrl('/process'), {
         method: 'POST',
         body: formData,
       })
