@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-opsflow-50: #f5f3ff;
+  --color-opsflow-100: #ede9fe;
+  --color-opsflow-200: #ddd6fe;
+  --color-opsflow-500: #8b5cf6;
+  --color-opsflow-600: #7c3aed;
+  --color-opsflow-700: #6d28d9;
+  --color-opsflow-900: #4c1d95;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #f9fafb;
+  color: #111827;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}

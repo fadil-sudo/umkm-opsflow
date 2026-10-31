@@ -1,4 +1,5 @@
 # UMKM OpsFlow
+
 ### Agent Laporan Operasional Harian untuk UMKM Indonesia
 
 **Short blurb:** *"Agent laporan harian UMKM dari data berantakan"*
@@ -23,14 +24,15 @@ Spreadsheet berantakan → Agent membaca → Validasi → Hitung (deterministik)
 2. **Penanda ketidakpastian** — agent menandai data yang tidak valid/duplikat/anomali secara eksplisit
 3. **Klarifikasi ambigu** — agent bertanya saat menemukan situasi ambigu (misal: pelanggan dengan status pembayaran berbeda pada hari yang sama)
 4. **Tindakan berbasis aturan** — item tindakan dihasilkan dari aturan deterministik, bukan tebakan LLM
-5. **Gerbang persetujuan manusia** — tidak ada tindakan eksternal tanpa konfirmasi eksplisit
-6. **Perhitungan yang dapat direproduksi** — semua matematika adalah kode Python, LLM tidak pernah menghitung angka
+   1. **Gerbang persetujuan manusia** — tidak ada tindakan eksternal tanpa konfirmasi eksplisit
+5. **Perhitungan yang dapat direproduksi** — semua matematika adalah kode Python, LLM tidak pernah menghitung angka
 
 ---
 
 ## Mulai Cepat
 
 ### Prasyarat
+
 - Python 3.11+ (diuji pada 3.13.12)
 - Tidak perlu dependensi pip untuk CLI (hanya pustaka standar untuk CSV)
 - Untuk UI: `pip install streamlit`
@@ -66,6 +68,7 @@ C:\Users\User\.workbuddy-ai\binaries\python\envs\default\Scripts\python.exe -m s
 ```
 
 Buka browser di `http://localhost:8501`. Anda bisa:
+
 - **Upload** file CSV via drag-and-drop
 - **Lihat** metrik pendapatan, pengeluaran, net cashflow
 - **Periksa** masalah validasi dan pertanyaan klarifikasi
@@ -100,13 +103,13 @@ python tests/test_opsflow.py
 
 Setelah dijalankan, direktori `output/` berisi:
 
-| File | Deskripsi |
-|------|-----------|
-| `daily_report.md` | Laporan operasional harian lengkap dengan metrik, isu, dan tindakan |
-| `draft_messages.md` | Draf pesan follow-up WhatsApp (untuk review manusia) |
-| `action_items.csv` | Item tindakan dalam format spreadsheet |
-| `validation_issues.csv` | Isu kualitas data dalam format spreadsheet |
-| `metrics.json` | Metrik mentah untuk audit/debugging |
+| File                    | Deskripsi                                                           |
+| ----------------------- | ------------------------------------------------------------------- |
+| `daily_report.md`       | Laporan operasional harian lengkap dengan metrik, isu, dan tindakan |
+| `draft_messages.md`     | Draf pesan follow-up WhatsApp (untuk review manusia)                |
+| `action_items.csv`      | Item tindakan dalam format spreadsheet                              |
+| `validation_issues.csv` | Isu kualitas data dalam format spreadsheet                          |
+| `metrics.json`          | Metrik mentah untuk audit/debugging                                 |
 
 ---
 
@@ -114,13 +117,13 @@ Setelah dijalankan, direktori `output/` berisi:
 
 Semua data di `data/` adalah **sintetis** dan diberi label jelas. Tidak ada data bisnis nyata yang digunakan.
 
-| File | Deskripsi |
-|------|-----------|
-| `sample_orders_clean.csv` | Data well-formed (11 record) — demo jalur normal |
-| `sample_orders_messy.csv` | Data berantakan (14 record) — menunjukkan validasi, deteksi duplikat, pembuatan tindakan |
-| `sample_orders_empty.csv` | File kosong — demo penanganan error |
-| `sample_prompt_injection.csv` | Instruksi berbahaya dalam field data — tes keamanan |
-| `sample_ambiguous.csv` | Data dengan ambiguitas (pelanggan dengan status berbeda) — demo klarifikasi |
+| File                          | Deskripsi                                                                                |
+| ----------------------------- | ---------------------------------------------------------------------------------------- |
+| `sample_orders_clean.csv`     | Data well-formed (11 record) — demo jalur normal                                         |
+| `sample_orders_messy.csv`     | Data berantakan (14 record) — menunjukkan validasi, deteksi duplikat, pembuatan tindakan |
+| `sample_orders_empty.csv`     | File kosong — demo penanganan error                                                      |
+| `sample_prompt_injection.csv` | Instruksi berbahaya dalam field data — tes keamanan                                      |
+| `sample_ambiguous.csv`        | Data dengan ambiguitas (pelanggan dengan status berbeda) — demo klarifikasi              |
 
 ---
 
@@ -139,20 +142,21 @@ Pengguna (WorkBuddy) → "Ini data penjualan hari ini" → unggah CSV
 ```
 
 **Pemisahan tanggung jawab:**
+
 - **LLM** (WorkBuddy agent): Memahami intent, memformat laporan, menyusun draf pesan
 - **Python** (deterministik): Parsing, validasi, SEMUA perhitungan numerik, aturan tindakan
 - **File system**: Baca input, tulis output (tidak ada panggilan API eksternal)
 
 ### Skrip
 
-| Skrip | Tujuan |
-|-------|--------|
-| `scripts/opsflow.py` | Entry point utama — orkestrasi pipeline lengkap |
-| `scripts/parse_input.py` | Parse CSV/XLSX menjadi record ternormalisasi |
-| `scripts/validate.py` | Validasi record, tandai isu |
-| `scripts/compute.py` | Hitung metrik (deterministik) |
-| `scripts/actions.py` | Hasilkan item tindakan berbasis aturan |
-| `scripts/export.py` | Ekspor laporan dan draf ke file |
+| Skrip                    | Tujuan                                          |
+| ------------------------ | ----------------------------------------------- |
+| `scripts/opsflow.py`     | Entry point utama — orkestrasi pipeline lengkap |
+| `scripts/parse_input.py` | Parse CSV/XLSX menjadi record ternormalisasi    |
+| `scripts/validate.py`    | Validasi record, tandai isu                     |
+| `scripts/compute.py`     | Hitung metrik (deterministik)                   |
+| `scripts/actions.py`     | Hasilkan item tindakan berbasis aturan          |
+| `scripts/export.py`      | Ekspor laporan dan draf ke file                 |
 
 ---
 
@@ -180,13 +184,13 @@ Pengguna (WorkBuddy) → "Ini data penjualan hari ini" → unggah CSV
 
 ## Metrik: Baseline vs Agent
 
-| Tugas | Manual (estimasi) | Agent (terukur) | Error Manual | Error Agent |
-|-------|-------------------|-----------------|--------------|-------------|
-| Kompilasi total harian | ~15 menit | <1 detik | 3-5 per hari | 0 (deterministik) |
-| Identifikasi pesanan belum bayar | ~5 menit | <1 detik | Sering terlewat | 0 |
-| Tandai isu kualitas data | ~10 menit (kalau dilakukan) | <1 detik | Jarang dilakukan | Komprehensif |
-| Siapkan draf follow-up | ~10 menit | <1 detik | Variatif | Draf siap pakai |
-| **Total** | **~40 menit** | **<15 detik** | **Tinggi** | **Mendekati nol** |
+| Tugas                            | Manual (estimasi)           | Agent (terukur) | Error Manual     | Error Agent       |
+| -------------------------------- | --------------------------- | --------------- | ---------------- | ----------------- |
+| Kompilasi total harian           | ~15 menit                   | <1 detik        | 3-5 per hari     | 0 (deterministik) |
+| Identifikasi pesanan belum bayar | ~5 menit                    | <1 detik        | Sering terlewat  | 0                 |
+| Tandai isu kualitas data         | ~10 menit (kalau dilakukan) | <1 detik        | Jarang dilakukan | Komprehensif      |
+| Siapkan draf follow-up           | ~10 menit                   | <1 detik        | Variatif         | Draf siap pakai   |
+| **Total**                        | **~40 menit**               | **<15 detik**   | **Tinggi**       | **Mendekati nol** |
 
 *Waktu manual adalah estimasi berdasarkan riset persona. Waktu agent adalah waktu eksekusi terukur aktual. Tingkat error manual diestimasi dari riset praktik operasional UMKM.*
 
@@ -195,13 +199,11 @@ Pengguna (WorkBuddy) → "Ini data penjualan hari ini" → unggah CSV
 ## Skrip Demo (2-3 menit)
 
 1. **Tunjukkan masalah (30 detik):** Buka `data/sample_orders_messy.csv` — tunjukkan keberantakan: nama pelanggan hilang, "Electric Pulsar XL" yang mencurigakan seharga Rp 50.000, baris supplies campur aduk, duplikat, pembayaran parsial.
-
 2. **Jalankan agent (30 detik):**
    ```
    python scripts/opsflow.py --input data/sample_orders_messy.csv --output-dir output/
    ```
    Tunjukkan output yang dapat dibaca manusia — 14 record diparse, 4 isu ditemukan, 4 tindakan diusulkan.
-
 3. **Tunjukkan laporan (60 detik):** Buka `output/daily_report.md` — tunjukkan:
    - Ringkasan eksekutif dengan pendapatan/pengeluaran/laba bersih
    - Rincian status pembayaran (2 belum bayar, 1 parsial)
@@ -209,9 +211,7 @@ Pengguna (WorkBuddy) → "Ini data penjualan hari ini" → unggah CSV
    - Isu kualitas data (duplikat, kuantitas tidak valid)
    - Item tindakan dengan prioritas
    - Jejak audit yang menunjukkan baris sumber
-
 4. **Tunjukkan draf pesan (30 detik):** Buka `output/draft_messages.md` — tunjukkan draf follow-up WhatsApp untuk pelanggan yang belum bayar. Tekankan: ini adalah draf, belum dikirim. Manusia harus salin dan kirim manual.
-
 5. **Penutup (30 detik):** "Apa yang butuh 40 menit kerja manual yang rawan error sekarang butuh 15 detik dengan jejak audit lengkap, validasi, dan persetujuan manusia sebelum tindakan apa pun."
 
 ---
