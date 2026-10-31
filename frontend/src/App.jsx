@@ -49,6 +49,7 @@ export default function App() {
   const [result, setResult] = useState(null)
   const [error, setError] = useState(null)
   const [activeTab, setActiveTab] = useState('overview')
+  const [actionStatuses, setActionStatuses] = useState({})
   const inputRef = useRef(null)
 
   const handleDrag = useCallback((e) => {
@@ -85,6 +86,7 @@ export default function App() {
     setLoading(true)
     setError(null)
     setResult(null)
+    setActionStatuses({})
 
     const formData = new FormData()
     formData.append('file', file)
@@ -105,6 +107,14 @@ export default function App() {
     } finally {
       setLoading(false)
     }
+  }
+
+  const handleApprove = (idx) => {
+    setActionStatuses(prev => ({ ...prev, [idx]: 'approved' }))
+  }
+
+  const handleIgnore = (idx) => {
+    setActionStatuses(prev => ({ ...prev, [idx]: 'ignored' }))
   }
 
   const tabs = [
@@ -374,33 +384,71 @@ export default function App() {
                       {result.actions?.length === 0 ? (
                         <p className="text-sm text-gray-500 text-center py-8">Tidak ada tindakan yang dihasilkan.</p>
                       ) : (
-                        result.actions.map((action, idx) => (
-                          <div key={idx} className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
-                            <div className="flex items-start justify-between gap-3">
-                              <div className="flex-1">
-                                <div className="flex items-center gap-2 mb-1">
-                                  <PriorityBadge priority={action.priority} />
-                                  <span className="text-xs text-gray-400">{action.category}</span>
-                                </div>
-                                <p className="text-sm font-semibold text-gray-800">{action.title}</p>
-                                <p className="text-sm text-gray-600 mt-1">{action.description}</p>
-                                {action.draft_message && (
-                                  <div className="mt-3 bg-white border border-gray-200 rounded p-3 text-sm text-gray-700 font-mono whitespace-pre-wrap">
-                                    {action.draft_message}
+                        result.actions.map((action, idx) => {
+                          const status = actionStatuses[idx]
+                          const isApproved = status === 'approved'
+                          const isIgnored = status === 'ignored'
+                          return (
+                            <div
+                              key={idx}
+                              className={`border rounded-lg p-4 transition-all ${
+                                isApproved
+                                  ? 'border-green-300 bg-green-50'
+                                  : isIgnored
+                                  ? 'border-gray-200 bg-gray-50 opacity-60'
+                                  : 'border-gray-200 hover:bg-gray-50'
+                              }`}
+                            >
+                              <div className="flex items-start justify-between gap-3">
+                                <div className="flex-1">
+                                  <div className="flex items-center gap-2 mb-1">
+                                    <PriorityBadge priority={action.priority} />
+                                    <span className="text-xs text-gray-400">{action.category}</span>
+                                    {isApproved && (
+                                      <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-green-100 text-green-700">
+                                        ✅ Disetujui
+                                      </span>
+                                    )}
+                                    {isIgnored && (
+                                      <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-gray-200 text-gray-600">
+                                        ❌ Diabaikan
+                                      </span>
+                                    )}
                                   </div>
-                                )}
+                                  <p className={`text-sm font-semibold ${isIgnored ? 'text-gray-500 line-through' : 'text-gray-800'}`}>
+                                    {action.title}
+                                  </p>
+                                  <p className={`text-sm mt-1 ${isIgnored ? 'text-gray-400 line-through' : 'text-gray-600'}`}>
+                                    {action.description}
+                                  </p>
+                                  {action.draft_message && !isIgnored && (
+                                    <div className={`mt-3 border rounded p-3 text-sm font-mono whitespace-pre-wrap ${
+                                      isApproved ? 'bg-green-100 border-green-200 text-green-800' : 'bg-white border-gray-200 text-gray-700'
+                                    }`}>
+                                      {action.draft_message}
+                                    </div>
+                                  )}
+                                </div>
                               </div>
+                              {!isApproved && !isIgnored && (
+                                <div className="mt-3 flex items-center gap-2">
+                                  <button
+                                    onClick={() => handleApprove(idx)}
+                                    className="text-xs px-3 py-1.5 rounded-md bg-opsflow-600 text-white hover:bg-opsflow-700 transition-colors"
+                                  >
+                                    Setujui
+                                  </button>
+                                  <button
+                                    onClick={() => handleIgnore(idx)}
+                                    className="text-xs px-3 py-1.5 rounded-md border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors"
+                                  >
+                                    Abaikan
+                                  </button>
+                                </div>
+                              )}
                             </div>
-                            <div className="mt-3 flex items-center gap-2">
-                              <button className="text-xs px-3 py-1.5 rounded-md bg-opsflow-600 text-white hover:bg-opsflow-700 transition-colors">
-                                Setujui
-                              </button>
-                              <button className="text-xs px-3 py-1.5 rounded-md border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors">
-                                Abaikan
-                              </button>
-                            </div>
-                          </div>
-                        ))
+                          )
+                        })
                       )}
                     </div>
                   )}
