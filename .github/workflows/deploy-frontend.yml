@@ -35,6 +35,8 @@ jobs:
         run: cd frontend && npm ci
 
       - name: Build
+        env:
+          VITE_API_URL: https://umkm-opsflow-api.onrender.com/api
         run: cd frontend && BASE_URL=/umkm-opsflow/ npm run build
 
       - name: Setup Pages

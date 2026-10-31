@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback } from 'react'
 
-const API_URL = import.meta.env.VITE_API_URL || '/api'
+const API_URL = import.meta.env.VITE_API_URL || 'https://umkm-opsflow-api.onrender.com/api'
 
 function formatRupiah(num) {
   if (num === undefined || num === null) return 'Rp 0'
